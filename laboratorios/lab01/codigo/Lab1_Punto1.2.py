@@ -13,4 +13,5 @@ def llenar_rect(n):
         return llenar_rect(n-1)+llenar_rect(n-2) 
     
 'Test'
-print(llenar_rect(4))
+for i in range (1,11):
+        print(llenar_rect(i))
