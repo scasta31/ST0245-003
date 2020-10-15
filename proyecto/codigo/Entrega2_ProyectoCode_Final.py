@@ -1,6 +1,6 @@
 """
 Estructura de datos y algoritmos 1
-Proyecto Entrega 1 
+Proyecto Entrega 2
 Sebastian Castaño Orozco 201610054014
 Dennis Castrillón Sepúlveda 201610036014
 
