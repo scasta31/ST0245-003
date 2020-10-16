@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[47]:
-
 
 """
 Estructura de datos y algoritmos 1
@@ -81,12 +76,3 @@ O(log(n))
 
 """  
   
-
-  
-
-
-# In[ ]:
-
-
-
-
