@@ -1,6 +1,6 @@
 """
 Estructura de datos y algoritmos 1
-Proyecto Entrega 2
+Proyecto Entrega 1 
 Sebastian Castaño Orozco 201610054014
 Dennis Castrillón Sepúlveda 201610036014
 
@@ -127,13 +127,13 @@ def Gini(num_col):
 
 # OUTPUT
 columns=["Consecutivo","Estudiante exterior?","Tomó curso preparatorio?","Hizo simulacro?","Numero libros en la familia","Departamento de residencia","Área de residencia","Estrato","Tiene internet?","Tiene computador","Trabaja actualmente?","Tipo colegio","Naturaleza colegio","Colegio bilingue?","Ubicación colegio","Exito/Fracaso"]
-print("OUTPUTS / RESULTS")
-for i in range (2,15):
-    print("------------------------------------------------------------------------------------")
+for i in range (1,15):
+    print("-------------------------------------------------------------------")
     valores=attribute_values(i)
     gini=Gini(i)
-    print("Para la variable ",columns[i] ," los valores posibles son: ", valores, ". Los respectivos coeficientes de Gini son: ", np.array(gini).T)
+    print("Para la variable ",columns[i] ," los valores posibles son: ", valores, "Los respectivos coeficientes de Gini son: ", np.array(gini).T)
 
+gini_estexterior=Gini(1)
 gini_cursoprep=Gini(2)
 gini_simulacro=Gini(3)
 gini_numlibros=Gini(4)
@@ -147,3 +147,29 @@ gini_tipocolegio=Gini(11)
 gini_naturalezacolegio=Gini(12)
 gini_colegiobilingue=Gini(13)
 gini_ubicolegio=Gini(14)
+
+
+pos_i=[-1,-1,-1,-1,-1]
+pos_j=[-1,-1,-1,-1,-1]
+atributo=["","","","",""]
+repetido=0
+cont_menores=[1,1,1,1,1]
+for s in range(0,5):
+    for i in range(2,15):
+        Gini_momento=Gini(i)
+        for j in range(0,len(Gini_momento)):         
+            if Gini_momento[j]<cont_menores[s]:
+                repetido=0  
+                for l in range (0,5):
+                    if pos_i[l]==i and pos_j[l]==j:
+                        repetido=1
+                if repetido==0:
+                        cont_menores[s]=Gini_momento[j]
+                        atributo[s]=attribute_values(i)[j]
+                        pos_i[s]=i
+                        pos_j[s]=j
+                        
+for i in range(0,5):
+    print("El atributo ", atributo[i], "es el numero ", i+1, "con la impureza de GINI mas baja, con un GINI de: ", cont_menores[i])
+                      
+                
